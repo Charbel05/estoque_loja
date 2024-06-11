@@ -1,0 +1,17 @@
+---Sistema Web composto por Web Services, Frontend e Banco de Dados---
+### Trabalho para a matéria de Sistemas distribuídos
+
+Sistema Web -> Sistema de estoque (loja) 
+
+Web services (REST):
+- Requisitar um produto (Verifica a quantidade);
+- Efetuar a compra (remover item).
+
+Front-end -> JS, HTML e CSS
+- Tela de cadastro;
+- Tela de login;
+- Tela principal (requisição).
+
+Banco de Dados -> PHPMyADMIN
+- Usuário (Tipo, nome, senha) 
+- Produtos (Quantidade, nome)
