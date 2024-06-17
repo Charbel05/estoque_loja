@@ -1,28 +1,41 @@
 const express = require('express')
-const users = require('./user.json');
+const path = require('path');
+const bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 
+const users = require('./user.json');
+
+// Rest of the code
+
+app.use(express.static(path.join(__dirname)));
+
+// Middleware para analisar o corpo das solicitações POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-    //a = parseInt(req.params.v1)
-    //b = parseInt(req.params.v2)
-    //c = a+b
-    //res.send("Soma: " + c)
-})
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-app.get('/compare', (req, res) => {
-    const v1 = req.query.v1;
-    //const v2 = parseInt(req.query.v2);
+// Rota para a página "home"
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, 'home.html'));
+});
 
-    const matchingUsers = users.filter(user => user.name === v1);
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
 
-    if (matchingUsers.length > 0) {
-        res.send(matchingUsers);
+    // Verifica se o usuário existe no "banco de dados" simulado
+    const user = users.people.find(user => user.username === username && user.password === password);
+
+    if (user) {
+        res.sendFile(path.join(__dirname, 'home.html'));
+    } else {
+        res.json({ success: false });
     }
-        
 });
 
 app.listen(port, () => {
-    console.log(`HTTP rodando em port = http://localhost:${port}`)
+    console.log(`Servidor rodando em http://localhost:${port}`)
 })
