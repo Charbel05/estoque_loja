@@ -1,9 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque</title>
+    <link rel="stylesheet" href="style_home.css">
 </head>
 <body>
-    <h1>Página HOME</h1>
+    <h1>Sistema de Estoque</h1>
+
+    <form class="estoque-form">
+        <label for="tipo">Tipo de Produto:</label>
+        <select id="tipo" name="tipo" class="select-box">
+            <option value="eletronico">Eletrônico</option>
+            <option value="vestuario">Vestuário</option>
+            <option value="alimento">Alimento</option>
+        </select>
+
+        <br>
+
+        <label for="produto">Produto:</label>
+        <select id="produto" name="produto" class="select-box">
+            <option value="celular">Celular</option>
+            <option value="camiseta">Camiseta</option>
+            <option value="arroz">Arroz</option>
+        </select>
+
+        <br>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" min="1" class="quantidade-input">
+
+        <br>
+
+        <button type="submit" class="btn-retirar">Retirar</button>
+        <button type="submit" class="btn-adicionar">Adicionar</button>
+    </form>
 </body>
 </html>
