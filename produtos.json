@@ -1,0 +1,44 @@
+{
+    "eletronico": [
+        {
+            "nome": "celular",
+            "quantidade": 0
+        },
+        {
+            "nome": "tablet",
+            "quantidade": 0
+        },
+        {
+            "nome": "notebook",
+            "quantidade": 0
+        }
+    ],
+    "vestuario": [
+        {
+            "nome": "camisa",
+            "quantidade": 0
+        },
+        {
+            "nome": "calça",
+            "quantidade": 0
+        },
+        {
+            "nome": "sapato",
+            "quantidade": 0
+        }
+    ],
+    "alimento": [
+        {
+            "nome": "arroz",
+            "quantidade": 0
+        },
+        {
+            "nome": "feijão",
+            "quantidade": 0
+        },
+        {
+            "nome": "macarrão",
+            "quantidade": 0
+        }
+    ]
+}

@@ -8,10 +8,9 @@ Web services (REST):
 - Efetuar a compra (remover item).
 
 Front-end -> JS, HTML e CSS
-- Tela de cadastro;
 - Tela de login;
 - Tela principal (requisição).
 
-Banco de Dados -> PHPMyADMIN
+Banco de Dados -> JSON
 - Usuário (Tipo, nome, senha) 
 - Produtos (Quantidade, nome)
