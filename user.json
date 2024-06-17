@@ -1,0 +1,19 @@
+{
+    "people": [
+        {
+            "name": "John Doe",
+            "username": "john",
+            "password": "123"
+        },
+        {
+            "name": "Jane Smith",
+            "username": "janesmith",
+            "password": "qwerty456"
+        },
+        {
+            "name": "Mike Johnson",
+            "username": "mikejohnson",
+            "password": "abc123xyz"
+        }
+    ]
+}

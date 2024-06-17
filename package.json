@@ -1,0 +1,22 @@
+{
+  "name": "estoque_loja",
+  "version": "1.0.0",
+  "description": "---Sistema Web composto por Web Services, Frontend e Banco de Dados---\r ### Trabalho para a matéria de Sistemas distribuídos",
+  "main": "script_cliente.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Charbel05/estoque_loja.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Charbel05/estoque_loja/issues"
+  },
+  "homepage": "https://github.com/Charbel05/estoque_loja#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
