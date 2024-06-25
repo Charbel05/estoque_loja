@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Estoque</title>
     <link rel="stylesheet" href="style_home.css">
-    <script src="script_estoque.js"></script>
+    <script src="script_estoque.js" defer></script>
 </head>
 <body>
     <h1>Sistema de Estoque</h1>
 
     <form class="estoque-form">
         <label for="tipo">Tipo de Produto:</label>
-        <select id="tipo" name="tipo" class="select-box" onchange="mostrarProdutos()">
+        <select id="tipo" name="tipo" class="select-box">
             <option value="eletronico">Eletrônico</option>
             <option value="vestuario">Vestuário</option>
             <option value="alimento">Alimento</option>
@@ -22,29 +22,7 @@
 
         <label for="produto">Produto:</label>
         <select id="produto" name="produto" class="select-box">
-            <script>
-                var tipoSelect = document.getElementById("tipo");
-                var produtoSelect = document.getElementById("produto");
-
-                tipoSelect.addEventListener("change", function() {
-                    produtoSelect.innerHTML = ""; // Clear previous options
-
-                    if (tipoSelect.value === "eletronico") {
-                        var options = ["Celular", "Notebook", "Tablet"];
-                    } else if (tipoSelect.value === "vestuario") {
-                        var options = ["Camiseta", "Calça", "Vestido"];
-                    } else if (tipoSelect.value === "alimento") {
-                        var options = ["Arroz", "Feijão", "Macarrão"];
-                    }
-
-                    options.forEach(function(option) {
-                        var optionElement = document.createElement("option");
-                        optionElement.value = option;
-                        optionElement.text = option;
-                        produtoSelect.appendChild(optionElement);
-                    });
-                });
-            </script>
+            <!-- Options populated by script_estoque.js -->
         </select>
 
         <br>

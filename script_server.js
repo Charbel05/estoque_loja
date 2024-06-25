@@ -1,9 +1,11 @@
-const express = require('express')
+const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const app = express()
-const port = 3000
+const fs = require('fs'); // Necessário para manipular arquivos
+const app = express();
+const port = 3000;
 const users = require('./user.json');
+let loja = require('./produtos.json'); // Carrega o arquivo produtos.json
 
 app.use(express.static(path.join(__dirname)));
 
@@ -16,7 +18,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    const { username, password } = req.body; 
+    const { username, password } = req.body;
 
     // Verifica se o usuário existe no "banco de dados" simulado
     const user = users.people.find(user => user.username === username && user.password === password);
@@ -28,6 +30,48 @@ app.post('/login', (req, res) => {
     }
 });
 
+app.post('/adicionar', (req, res) => {
+    const { tipo, produto, quantidade } = req.body;
+
+    // Procura o produto e atualiza a quantidade
+    const category = loja[tipo];
+    if (category) {
+        const item = category.find(item => item.nome === produto);
+        if (item) {
+            item.quantidade += parseInt(quantidade, 10); // Atualiza a quantidade
+            fs.writeFileSync('./produtos.json', JSON.stringify(loja, null, 2)); // Salva no arquivo
+            res.send('Produto atualizado com sucesso.');
+        } else {
+            res.status(404).send('Produto não encontrado.');
+        }
+    } else {
+        res.status(404).send('Categoria não encontrada.');
+    }
+});
+
+app.post('/remover', (req, res) => {
+    const { tipo, produto, quantidade } = req.body;
+
+    // Procura o produto e atualiza a quantidade
+    const category = loja[tipo];
+    if (category) {
+        const item = category.find(item => item.nome === produto);
+        if (item) {
+            if (item.quantidade >= parseInt(quantidade, 10)) {
+                item.quantidade -= parseInt(quantidade, 10); // Atualiza a quantidade
+                fs.writeFileSync('./produtos.json', JSON.stringify(loja, null, 2)); // Salva no arquivo
+                res.send('Produto removido com sucesso.');
+            } else {
+                res.status(400).send('Quantidade insuficiente em estoque.');
+            }
+        } else {
+            res.status(404).send('Produto não encontrado.');
+        }
+    } else {
+        res.status(404).send('Categoria não encontrada.');
+    }
+});
+
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`)
-})
+    console.log(`Servidor rodando em http://localhost:${port}`);
+});
